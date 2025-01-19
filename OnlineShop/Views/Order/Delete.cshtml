@@ -1,0 +1,59 @@
+﻿@model OnlineShop.DAL.ViewModels.OrderViewModel
+
+@{
+    ViewData["Title"] = "Delete Order";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>Are you sure you want to delete the following order?</p>
+
+<div class="mb-3">
+    <label><strong>Customer Id:</strong></label>
+    <p>@Model.CustomerId</p>
+</div>
+
+<div class="mb-3">
+    <label><strong>Sales Order Number:</strong></label>
+    <p>@Model.SalesOrderNumber</p>
+</div>
+
+<div class="mb-3">
+    <label><strong>Order Date:</strong></label>
+    <p>@Model.OrderDate.ToString("yyyy-MM-dd")</p>
+</div>
+
+<div class="mb-3">
+    <label><strong>Ship Method:</strong></label>
+    <p>@Model.ShipMethod</p>
+</div>
+
+<div class="mb-3">
+    <label><strong>SubTotal:</strong></label>
+    <p>@Model.SubTotal</p>
+</div>
+
+<div class="mb-3">
+    <label><strong>Tax Amount:</strong></label>
+    <p>@Model.TaxAmt</p>
+</div>
+
+<div class="mb-3">
+    <label><strong>Freight:</strong></label>
+    <p>@Model.Freight</p>
+</div>
+
+<div class="mb-3">
+    <label><strong>Total Due:</strong></label>
+    <p>@Model.TotalDue</p>
+</div>
+
+<div class="mb-3">
+    <label><strong>Status:</strong></label>
+    <p>@Model.Status</p>
+</div>
+
+<form method="post">
+    <button type="submit" class="btn btn-danger">Delete Order</button>
+    <a href="@Url.Action("Index", "Order")" class="btn btn-secondary">Cancel</a>
+</form>

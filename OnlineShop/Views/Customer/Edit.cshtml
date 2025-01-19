@@ -1,0 +1,33 @@
+﻿@model OnlineShop.DAL.ViewModels.CustomerViewModel
+
+<h1>Edit Customer</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label for="Name">FirstName</label>
+        <input type="text" class="form-control" id="Name" name="Name" value="@Model.FirstName" required />
+    </div>
+    <div class="form-group">
+        <label for="Name">LastName</label>
+        <input type="text" class="form-control" id="Name" name="Name" value="@Model.LastName" required />
+    </div>
+    <div class="form-group">
+        <label for="Email">Email</label>
+        <input type="email" class="form-control" id="Email" name="Email" value="@Model.EmailAddress" required />
+    </div>
+    <div class="form-group">
+        <label for="Phone">Phone</label>
+        <input type="text" class="form-control" id="Phone" name="Phone" value="@Model.Phone" required />
+    </div>
+    <div class="form-group">
+        <label for="CompanyName">CompanyName</label>
+        <input type="text" class="form-control" id="CompanyName" name="CompanyName" value="@Model.CompanyName" required />
+    </div>
+    <div class="form-group">
+        <label for="SalesPerson">SalesPerson</label>
+        <input type="text" class="form-control" id="SalesPerson" name="SalesPerson" value="@Model.SalesPerson" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+</form>
+
+<a href="@Url.Action("Index", "Customer")" class="btn btn-secondary">Back to List</a>

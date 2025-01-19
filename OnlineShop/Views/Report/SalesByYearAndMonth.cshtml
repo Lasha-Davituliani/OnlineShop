@@ -1,0 +1,23 @@
+﻿@model OnlineShop.DAL.ViewModels.ReportViewModel
+
+<h1>Sales Amounts Aggregated by Year and Month</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Year-Month</th>
+            <th>Sales Amount</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var report in Model.SalesByYearAndMonth)
+        {
+            <tr>
+                <td>@report.Label</td>
+                <td>@report.SalesAmount</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="@Url.Action("Index")" class="btn btn-secondary">Back to Reports</a>

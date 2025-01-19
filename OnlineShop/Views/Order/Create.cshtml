@@ -1,0 +1,52 @@
+﻿@model OnlineShop.DAL.ViewModels.OrderViewModel
+
+@{
+    ViewData["Title"] = "Create Order";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form method="post" class="mb-3">
+    <div class="form-group">
+        <label for="CustomerName">Customer Id</label>
+        <input type="text" name="CustomerName" class="form-control" value="@Model.CustomerId" required />
+    </div>
+
+    <div class="form-group">
+        <label for="SalesOrderNumber">Sales Order Number</label>
+        <input type="text" name="SalesOrderNumber" class="form-control" value="@Model.SalesOrderNumber" required />
+    </div>
+
+    <div class="form-group">
+        <label for="OrderDate">Order Date</label>
+        <input type="date" name="OrderDate" class="form-control" value="@Model.OrderDate.ToString("yyyy-MM-dd")" required />
+    </div>
+
+    <div class="form-group">
+        <label for="ShipMethod">Ship Method</label>
+        <input type="text" name="ShipMethod" class="form-control" value="@Model.ShipMethod" />
+    </div>
+
+    <div class="form-group">
+        <label for="SubTotal">SubTotal</label>
+        <input type="number" name="SubTotal" class="form-control" value="@Model.SubTotal" required />
+    </div>
+
+    <div class="form-group">
+        <label for="TaxAmt">Tax Amount</label>
+        <input type="number" name="TaxAmt" class="form-control" value="@Model.TaxAmt" required />
+    </div>
+
+    <div class="form-group">
+        <label for="Freight">Freight</label>
+        <input type="number" name="Freight" class="form-control" value="@Model.Freight" required />
+    </div>
+
+    <div class="form-group">
+        <label for="TotalDue">Total Due</label>
+        <input type="number" name="TotalDue" class="form-control" value="@Model.TotalDue" required />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create Order</button>
+    <a href="@Url.Action("Index", "Order")" class="btn btn-secondary">Back to List</a>
+</form>

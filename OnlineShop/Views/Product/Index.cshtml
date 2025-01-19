@@ -1,0 +1,72 @@
+﻿@model OnlineShop.DAL.ViewModels.ProductListViewModel
+
+@{
+    ViewData["Title"] = "Products List";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+
+<form method="get" class="mb-3">
+    <div class="input-group">
+        <input type="text" name="searchTerm" value="@Model.SearchTerm" class="form-control" placeholder="Search products..." />
+        <button type="submit" class="btn btn-primary">Search</button>
+    </div>
+</form>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ProductId</th>
+            <th>Product Name</th>
+            <th>Product Number</th>
+            <th>Color</th>
+            <th>List Price</th>
+            <th>Modified Date</th>
+            <th>CategoryId</th>
+            <th>ModelId</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model.Products)
+        {
+            <tr>
+                <td>@product.ProductId</td>
+                <td>@product.Name</td>
+                <td>@product.ProductNumber</td>
+                <td>@product.Color</td>
+                <td>@product.ListPrice</td>
+                <td>@product.ModifiedDate</td>
+                <td>@product.ProductCategoryId</td>
+                <td>@product.ProductModelId</td>
+                <td>
+                    <a href="@Url.Action("Details", "Product", new { id = product.ProductId })" class="btn btn-info">Details</a>
+                    <a href="@Url.Action("Edit", "Product", new { id = product.ProductId })" class="btn btn-warning">Edit</a>
+                    <a href="@Url.Action("Delete", "Product", new { id = product.ProductId })" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<div class="d-flex justify-content-between">
+    <div>
+        <span>Page @Model.CurrentPage of @Model.TotalPages</span>
+    </div>
+    <div>
+        @if (Model.CurrentPage > 1)
+        {
+            <a href="@Url.Action("Index", "Product", new { searchTerm = Model.SearchTerm, page = Model.CurrentPage - 1 })" class="btn btn-secondary">Previous</a>
+        }
+
+        @if (Model.CurrentPage < Model.TotalPages)
+        {
+            <a href="@Url.Action("Index", "Product", new { searchTerm = Model.SearchTerm, page = Model.CurrentPage + 1 })" class="btn btn-secondary">Next</a>
+        }
+    </div>
+</div>
+
+<a href="@Url.Action("Create", "Product")" class="btn btn-primary">Create New Product</a>

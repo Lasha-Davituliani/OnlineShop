@@ -1,0 +1,25 @@
+﻿@model OnlineShop.DAL.ViewModels.ReportViewModel
+
+<h1>Top 10 Products by Sales Amount for Each Year</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Year</th>
+            <th>Product</th>
+            <th>Sales Amount</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model.Top10ProductsBySalesAmountPerYear)
+        {
+            <tr>
+                <td>@product.Label</td>
+                <td>@product.Label</td> 
+                <td>@product.SalesAmount</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="@Url.Action("Index")" class="btn btn-secondary">Back to Reports</a>

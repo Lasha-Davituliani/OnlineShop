@@ -1,0 +1,20 @@
+﻿@model OnlineShop.DAL.ViewModels.ProductViewModel
+
+@{
+    ViewData["Title"] = "Delete Product";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="alert alert-danger">
+    <h4>Are you sure you want to delete this product?</h4>
+    <p><strong>Product Name:</strong> @Model.Name</p>
+    <p><strong>Category:</strong> @Model.Categories.FirstOrDefault(c => c.ProductCategoryId == Model.ProductCategoryId)?.Name</p>
+    <p><strong>Model:</strong> @Model.Models.FirstOrDefault(m => m.ProductModelId == Model.ProductModelId)?.Name</p>
+    <p><strong>List Price:</strong> @Model.ListPrice</p>
+</div>
+
+<form method="post">
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a href="@Url.Action("Index", "Product")" class="btn btn-secondary">Cancel</a>
+</form>

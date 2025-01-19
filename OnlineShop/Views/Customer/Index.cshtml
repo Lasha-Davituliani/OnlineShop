@@ -1,0 +1,57 @@
+﻿@model OnlineShop.DAL.ViewModels.CustomerListViewModel
+
+<h1>Customers List</h1>
+
+<form method="get" class="mb-3">
+    <div class="input-group">
+        <input type="text" name="searchTerm" value="@Model.SearchTerm" class="form-control" placeholder="Search customers..." />
+        <button type="submit" class="btn btn-primary">Search</button>
+    </div>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var customer in Model.Customers)
+        {
+            <tr>
+                <td>@customer.CustomerId</td>
+                <td>@customer.FirstName</td>
+                <td>@customer.LastName</td>
+                <td>@customer.EmailAddress</td>
+                <td>@customer.Phone</td>
+                <td>
+                    <a href="@Url.Action("Details", "Customer", new { id = customer.CustomerId })" class="btn btn-info">Details</a>
+                    <a href="@Url.Action("Edit", "Customer", new { id = customer.CustomerId })" class="btn btn-warning">Edit</a>
+                    <a href="@Url.Action("Delete", "Customer", new { id = customer.CustomerId })" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="d-flex justify-content-between">
+    <span>Page @Model.CurrentPage of @Model.TotalPages</span>
+    <div>
+        @if (Model.CurrentPage > 1)
+        {
+            <a href="@Url.Action("Index", "Customer", new { searchTerm = Model.SearchTerm, page = Model.CurrentPage - 1 })" class="btn btn-secondary">Previous</a>
+        }
+
+        @if (Model.CurrentPage < Model.TotalPages)
+        {
+            <a href="@Url.Action("Index", "Customer", new { searchTerm = Model.SearchTerm, page = Model.CurrentPage + 1 })" class="btn btn-secondary">Next</a>
+        }
+    </div>
+</div>
+
+<a href="@Url.Action("Create", "Customer")" class="btn btn-primary">Create New Customer</a>

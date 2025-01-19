@@ -1,0 +1,19 @@
+﻿@model OnlineShop.DAL.ViewModels.ReportViewModel
+
+<h1>Reports</h1>
+
+<div class="container">
+    <!-- Actions for each report -->
+    <div class="list-group">
+        <a href="@Url.Action("SalesByYearAndMonth")" class="list-group-item list-group-item-action">Sales Amounts Aggregated by Year and Month</a>
+        <a href="@Url.Action("SalesByProducts")" class="list-group-item list-group-item-action">Sales Amounts Aggregated by Products</a>
+        <a href="@Url.Action("SalesByProductCategories")" class="list-group-item list-group-item-action">Sales Amounts Aggregated by Product Categories</a>
+        <a href="@Url.Action("SalesByCustomersAndYears")" class="list-group-item list-group-item-action">Sales Amounts Aggregated by Customers and Years</a>
+        <a href="@Url.Action("SalesByCity")" class="list-group-item list-group-item-action">Sales Amounts Aggregated by City</a>
+        <a href="@Url.Action("Top10CustomersBySalesAmount")" class="list-group-item list-group-item-action">Top 10 Customers by Sales Amount</a>
+        <a href="@Url.Action("Top10CustomersBySalesAmountPerYear")" class="list-group-item list-group-item-action">Top 10 Customers by Sales Amount for Each Year</a>
+        <a href="@Url.Action("Top10ProductsBySalesAmount")" class="list-group-item list-group-item-action">Top 10 Products by Sales Amount</a>
+        <a href="@Url.Action("Top10ProductsBySalesProfit")" class="list-group-item list-group-item-action">Top 10 Products by Sales Profit</a>
+        <a href="@Url.Action("Top10ProductsBySalesAmountPerYear")" class="list-group-item list-group-item-action">Top 10 Products by Sales Amount for Each Year</a>
+    </div>
+</div>

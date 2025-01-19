@@ -1,0 +1,13 @@
+﻿@model OnlineShop.DAL.ViewModels.CustomerViewModel
+
+<h1>Customer Details</h1>
+
+<p><strong>FirstName:</strong> @Model.FirstName</p>
+<p><strong>MiddleName:</strong> @Model.MiddleName</p>
+<p><strong>LastName:</strong> @Model.LastName</p>
+<p><strong>Email:</strong> @Model.EmailAddress</p>
+<p><strong>Phone:</strong> @Model.Phone</p>
+<p><strong>CompanyName:</strong> @Model.CompanyName</p>
+<p><strong>SalesPerson:</strong> @Model.SalesPerson</p>
+
+<a href="@Url.Action("Index", "Customer")" class="btn btn-secondary">Back to List</a>

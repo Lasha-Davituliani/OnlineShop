@@ -1,0 +1,17 @@
+﻿@model OnlineShop.DAL.ViewModels.CustomerViewModel
+
+<h1>Delete Customer</h1>
+
+<p>Are you sure you want to delete the following customer?</p>
+
+<p><strong>FirstName:</strong> @Model.FirstName</p>
+<p><strong>LastName:</strong> @Model.LastName</p>
+<p><strong>Email:</strong> @Model.EmailAddress</p>
+<p><strong>Phone:</strong> @Model.Phone</p>
+
+<form method="post" asp-action="ConfirmDelete">
+    <input type="hidden" name="CustomerId" value="@Model.CustomerId" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+</form>
+
+<a href="@Url.Action("Index", "Customer")" class="btn btn-secondary">Cancel</a>
